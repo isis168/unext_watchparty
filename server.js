@@ -4,7 +4,7 @@
 // 起動: npm install && node server.js
 // ============================================================
 
-const { WebSocketServer } = require("ws");
+const { WebSocketServer } = require("http");
 
 const PORT = process.env.PORT || 8765;
 const wss = new WebSocketServer({ port: PORT });
