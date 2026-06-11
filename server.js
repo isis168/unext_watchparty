@@ -5,9 +5,15 @@
 // ============================================================
 
 const http = require("http");
+const { WebSocketServer } = require("ws");
 
 const PORT = process.env.PORT || 8765;
-const wss = new WebSocketServer({ port: PORT });
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("U-NEXT Party server is running");
+});
+const wss = new WebSocketServer({ server });
+server.listen(PORT);
 
 // roomId -> {
 //   clients: Set<WebSocket>,
